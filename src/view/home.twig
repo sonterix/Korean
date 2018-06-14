@@ -1,0 +1,41 @@
+{% include('header.twig') %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center align-middle" scope="col">Название</th>
+                <th class="text-center align-middle" scope="col">Оригинальное название</th>
+                <th class="text-center align-middle" scope="col">Страна</th>
+                <th class="text-center align-middle" scope="col">Телеканал</th>
+                <th class="text-center align-middle" scope="col">Количество серий</th>
+                <th class="text-center align-middle" scope="col">Продолжительность серии</th>
+                <th class="text-center align-middle" scope="col">Статус</th>
+                <th class="text-center align-middle" scope="col">Режиссёр</th>
+                <th class="text-center align-middle" scope="col">Жанр</th>
+                <th class="text-center align-middle" scope="col">Год выпуска</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+            <tr>
+                <td class="text-center align-middle">{{ value.dorama_name }}</td>
+                <td class="text-center align-middle">{{ value.dorama_original_name }}</td>
+                <td class="text-center align-middle">{{ value.country.country_name }}</td>
+                <td class="text-center align-middle">{{ value.channel.сhannel_name }}</td>
+                <td class="text-center align-middle">{{ value.series_count }}</td>
+                <td class="text-center align-middle">{{ value.series_duration }}</td>
+                <td class="text-center align-middle">{{ value.status.status_name }}</td>
+                <td class="text-center align-middle">{{ value.producer.producer_name }}</td>
+                <td class="text-center align-middle">{{ value.genre.genre_name }}</td>
+                <td class="text-center align-middle">{{ value.issue_year }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>not found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include('footer.twig') %}

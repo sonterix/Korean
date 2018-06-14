@@ -1,0 +1,13 @@
+{
+    "require": {
+        "slim/slim": "^3.10",
+        "slim/pdo": "~1.10",
+        "slim/twig-view": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\controller\\": "src/controller",    
+            "app\\model\\": "src/model"
+        }
+    }
+}
