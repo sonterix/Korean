@@ -11,7 +11,7 @@
 .x-btn i:hover { color: #C62828; }
 .edit-btn i:hover { color: #1565C0; }
 
-.title-color { color: #952347; }
+.title-color { color: #952347; text-transform: uppercase; font-size: 34px; font-weight: 600; }
 .btn-dorama { color:#fff; background-color: #952347; transition: 0.2s; }
 .btn-dorama:hover { background-color: #751b38; }
 
