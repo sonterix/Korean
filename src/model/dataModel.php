@@ -29,6 +29,7 @@ class DataModel
 
         foreach($data as $key => $value) {
             $dataNew[$key] = [
+                'id' => $value['id_dorama'],
                 'dorama_name' => $value['dorama_name'],
                 'dorama_original_name' => $value['dorama_original_name'],
                 'country' => current($this->getCountry($value['id_country'])),
@@ -96,6 +97,12 @@ class DataModel
           ->into('dorama')
           ->values([$data['Dorama']['name'],$data['Dorama']['original-name'],$data['Dorama']['country'],$data['Dorama']['channel'],$data['Dorama']['series-count'],$data['Dorama']['series-duration'],$data['Dorama']['status'],$data['Dorama']['producer'],$data['Dorama']['genre'],$data['Dorama']['issue-year']]);
         $stmt = $doramaData->execute(false);
+    }
+
+    public function deleteDorama($id)
+    {
+        $doramaData = $this->dbh->delete()->from('dorama')->where('id_dorama', '=', $id);
+        $stmt = $doramaData->execute();
     }
 
 }

@@ -1,5 +1,5 @@
 {% include('header.twig') %}
-<div class="container">
+<div class="container-fluid">
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +13,8 @@
                 <th class="text-center align-middle" scope="col">Режиссёр</th>
                 <th class="text-center align-middle" scope="col">Жанр</th>
                 <th class="text-center align-middle" scope="col">Год выпуска</th>
-                
+                <th class="text-center align-middle" scope="col"></th>
+                <th class="text-center align-middle" scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@
                 <td class="text-center align-middle">{{ value.producer.producer_name }}</td>
                 <td class="text-center align-middle">{{ value.genre.genre_name }}</td>
                 <td class="text-center align-middle">{{ value.issue_year }}</td>
+                <td class="text-center align-middle edit-btn"><i class="far fa-edit"></i></td>
+                <td class="text-center align-middle x-btn"><i class="far fa-times-circle"></i></td>
+                <td class="d-none dorama-id">{{ value.id }}</td>
             </tr>
         {% else %}
             <tr>

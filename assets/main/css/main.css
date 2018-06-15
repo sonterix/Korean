@@ -1,0 +1,3 @@
+.x-btn i, .edit-btn i { cursor: pointer; transition: 0.2s; }
+.x-btn i:hover { color: #C62828; }
+.edit-btn i:hover { color: #1565C0; }

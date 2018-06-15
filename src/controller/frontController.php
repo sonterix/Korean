@@ -42,4 +42,10 @@ class FrontController
         return $response->withRedirect('/');
     }
 
+    public function deleteDorama($request, $response)
+    {
+        $this->dataModel->deleteDorama($request->getParam('element'));
+
+    }
+
 }
