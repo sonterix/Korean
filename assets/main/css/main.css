@@ -5,6 +5,8 @@
 ::selection { color: #fff; background: #952347; }
 ::-moz-selection { color: #fff; background: #952347; }
 
+.form-group input, .form-group select { color: #952347 !important; }
+
 .x-btn i, .edit-btn i { cursor: pointer; transition: 0.2s; }
 .x-btn i:hover { color: #C62828; }
 .edit-btn i:hover { color: #1565C0; }
@@ -18,3 +20,5 @@
 
 #sort-table thead tr th { outline: none; transition: 0.2s; }
 #sort-table thead tr th:hover { color: #952347; cursor: pointer; }
+
+#filter-form select { font-size: 13px; }

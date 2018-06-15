@@ -21,9 +21,19 @@ class DataModel
         $this->dbh = $dbModel->getDbh();
     }
 
-    public function getAllData()
+    public function getAllData($filter = '')
     {
         $doramaData = $this->dbh->select()->from('dorama');
+
+        if($filter != '') {
+            // var_dump($filter);die();
+            foreach($filter as $key => $value) {
+                if($value != 'none') {
+                    $doramaData->where($key, '=', $value);
+                }
+            }
+        }
+
         $stmt = $doramaData->execute();
         $data = $stmt->fetchAll();
 
@@ -121,6 +131,12 @@ class DataModel
             'id_genre' => $data["Dorama"]['genre'],
             'issue_year' => $data["Dorama"]['issue-year']
         ])->table('dorama')->where('id_dorama', '=', $data["Dorama"]['id']);
+        $stmt = $doramaData->execute();
+    }
+
+    public function sotrDoramas($id)
+    {
+        $doramaData = $this->dbh->delete()->from('dorama')->where('id_dorama', '=', $id);
         $stmt = $doramaData->execute();
     }
 

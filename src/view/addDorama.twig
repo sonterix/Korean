@@ -1,17 +1,17 @@
 {% include('header.twig') %}
 <div class="container">
-    <h1 class="text-center mb-4 title-color">Add Dorama</h1>
+    <h1 class="text-center mb-4 title-color">Добавить Дораму</h1>
     <form method="POST" action="/addNewDorama">
         <div class="form-group">
-            <label>Enter Name</label>
-            <input type="text" name="Dorama[name]"class="form-control" placeholder="Name" required >
+            <label>Введите Название</label>
+            <input type="text" name="Dorama[name]"class="form-control" placeholder="Название" required >
         </div>
         <div class="form-group">
-            <label>Enter Original Name</label>
-            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Original Name" required >
+            <label>Введите Оригинальное Название</label>
+            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Оригинальное название" required >
         </div>
         <div class="form-group">
-            <label>Select Country</label>
+            <label>Выберите Страну</label>
             <select  name="Dorama[country]" class="form-control">
                 {% for value in country %}
                     <option value="{{ value.id_country }}">{{ value.country_name }}</option>
@@ -19,7 +19,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Channel</label>
+            <label>Выберите Телеканал</label>
             <select  name="Dorama[channel]" class="form-control">
                 {% for value in channel %}
                     <option value="{{ value.id_channel }}">{{ value.сhannel_name }}</option>
@@ -27,15 +27,15 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Enter Series Count</label>
-            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Series Count" required >
+            <label>Введите Количество Серий</label>
+            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Количество серий" required >
         </div>
         <div class="form-group">
-            <label>Enter Series Duration</label>
-            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Series Duration" required >
+            <label>Введите Продолжительность Серии</label>
+            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Продолжительность серии" required >
         </div>
         <div class="form-group">
-            <label>Select Status</label>
+            <label>Выберите Статус</label>
             <select  name="Dorama[status]" class="form-control">
                 {% for value in statust %}
                     <option value="{{ value.id_status }}">{{ value.status_name }}</option>
@@ -43,7 +43,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Producer</label>
+            <label>Выберите Режисёра</label>
             <select  name="Dorama[producer]" class="form-control">
                 {% for value in producer %}
                     <option value="{{ value.id_producer }}">{{ value.producer_name }}</option>
@@ -51,7 +51,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Genre</label>
+            <label>Выберите Жанр</label>
             <select  name="Dorama[genre]" class="form-control">
                 {% for value in genre %}
                     <option value="{{ value.id_genre }}">{{ value.genre_name }}</option>
@@ -59,10 +59,10 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Enter Issue Year</label>
-            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" required >
+            <label>Введите Год Выпуска</label>
+            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Год выпуска" required >
         </div>
-        <button type="submit" class="btn btn-dorama mb-5">Add New Dorama</button>
+        <button type="submit" class="btn btn-dorama mb-5">Добавить Дораму</button>
     </form>
 </div>
 {% include('footer.twig') %}

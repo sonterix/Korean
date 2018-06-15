@@ -1,6 +1,74 @@
 {% include('header.twig') %}
 <div class="container-fluid">
-    <h1 class="text-center mb-4 title-color">Doramas</h1>
+    <h1 class="text-center mb-4 title-color">Дорамы</h1>
+    <form method="POST" action="/" class="d-flex flex-row justify-content-end align-items-center mb-3" id="filter-form">
+        <div class="ml-2">
+            <label class="mb-0">Искать по:</label>
+        </div>
+        <div class="ml-2">
+            <select class="form-control" name="id_country">
+                <option value="none">Выберите Страну..</option>
+                {% for value in country %}
+                    {% if value.id_country == selected.id_country %}
+                        <option value="{{ value.id_country }}" selected>{{ value.country_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_country }}">{{ value.country_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="ml-2">
+            <select class="form-control" name="id_channel">
+                <option value="none">Выберите Канал..</option>
+                {% for value in channel %}
+                    {% if value.id_channel == selected.id_channel %}
+                        <option value="{{ value.id_channel }}" selected>{{ value.сhannel_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_channel }}">{{ value.сhannel_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="ml-2">
+            <select class="form-control" name="id_status">
+                <option value="none">Выберите Статус..</option>
+                {% for value in statust %}
+                    {% if value.id_status == selected.id_status %}
+                        <option value="{{ value.id_status }}" selected>{{ value.status_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_status }}">{{ value.status_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="ml-2">
+            <select class="form-control" name="id_producer">
+                <option value="none">Выберите Режиссёра..</option>
+                {% for value in producer %}
+                    {% if value.id_producer == selected.id_producer %}
+                        <option value="{{ value.id_producer }}" selected>{{ value.producer_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_producer }}">{{ value.producer_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="ml-2">
+            <select class="form-control" name="id_genre">
+                <option value="none">Выберите Жанр..</option>
+                {% for value in genre %}
+                    {% if value.id_genre == selected.id_genre %}
+                        <option value="{{ value.id_genre }}" selected>{{ value.genre_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_genre }}">{{ value.genre_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="ml-2">
+            <input type="submit" class="btn btn-dorama" value="Найти">
+        </div>
+    </form>
     <table class="table" id="sort-table">
         <thead>
             <tr>
@@ -37,7 +105,7 @@
             </tr>
         {% else %}
             <tr>
-                <td>not found</td>
+                <td colspan="12" class="title-color text-center">Ничего не найдено</td>
             </tr>
         {% endfor %}
         </tbody>

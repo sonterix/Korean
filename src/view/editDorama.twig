@@ -1,17 +1,17 @@
 {% include('header.twig') %}
 <div class="container">
-    <h1 class="text-center mb-4 title-color">Edit Dorama</h1>
+    <h1 class="text-center mb-4 title-color">Редактировать Дораму</h1>
     <form method="POST" action="/editNewDorama">
         <div class="form-group">
-            <label>Enter Name</label>
-            <input type="text" name="Dorama[name]"class="form-control" placeholder="Name" value="{{ data.dorama_name }}" required >
+            <label>Введите Название</label>
+            <input type="text" name="Dorama[name]"class="form-control" placeholder="Название" value="{{ data.dorama_name }}" required >
         </div>
         <div class="form-group">
-            <label>Enter Original Name</label>
-            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Original Name" value="{{ data.dorama_original_name }}" required >
+            <label>Введите Оригинальное Название</label>
+            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Оригинальное название" value="{{ data.dorama_original_name }}" required >
         </div>
         <div class="form-group">
-            <label>Select Country</label>
+            <label>Выберите Страну</label>
             <select  name="Dorama[country]" class="form-control">
                 {% for value in country %}
                     {% if value.id_country == data.id_country %}
@@ -23,7 +23,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Channel</label>
+            <label>Выберите Телеканал</label>
             <select  name="Dorama[channel]" class="form-control">
                 {% for value in channel %}
                     {% if value.id_channel == data.id_channel %}
@@ -35,15 +35,15 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Enter Series Count</label>
-            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Series Count" value="{{ data.series_count }}" required >
+            <label>Введите Количество Серий</label>
+            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Количество серий" value="{{ data.series_count }}" required >
         </div>
         <div class="form-group">
-            <label>Enter Series Duration</label>
-            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Series Duration" value="{{ data.series_duration }}" required >
+            <label>Введите Продолжительность Серии</label>
+            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Продолжительность серии" value="{{ data.series_duration }}" required >
         </div>
         <div class="form-group">
-            <label>Select Status</label>
+            <label>Выберите Статус</label>
             <select  name="Dorama[status]" class="form-control">
                 {% for value in statust %}
                     {% if value.id_status == data.id_status %}
@@ -55,7 +55,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Producer</label>
+            <label>Выберите Режисёра</label>
             <select  name="Dorama[producer]" class="form-control">
                 {% for value in producer %}
                     {% if value.id_producer == data.id_producer %}
@@ -67,7 +67,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Select Genre</label>
+            <label>Выберите Жанр</label>
             <select  name="Dorama[genre]" class="form-control">
                 {% for value in genre %}
                     {% if value.id_genre == data.id_genre %}
@@ -79,11 +79,11 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Enter Issue Year</label>
-            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" value="{{ data.issue_year }}" required >
+            <label>Введите Год Выпуска</label>
+            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Год выпуска" value="{{ data.issue_year }}" required >
         </div>
         <input type="hidden" name="Dorama[id]" value="{{ id }}">
-        <button type="submit" class="btn btn-dorama mb-5">Update Dorama</button>
+        <button type="submit" class="btn btn-dorama mb-5">Обновить Дораму</button>
     </form>
 </div>
 {% include('footer.twig') %}

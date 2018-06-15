@@ -20,8 +20,15 @@ class FrontController
 
     public function home($request, $response)
     {
-        $dataForView = $this->dataModel->getAllData();
-        return $this->container->view->render($response, 'home.twig', ['data' => $dataForView]);
+        $dataForView = [
+            'data' => $this->dataModel->getAllData(),
+            'country' => $this->dataModel->getCountry(),
+            'channel' => $this->dataModel->getChannel(),
+            'statust' => $this->dataModel->getStatus(),
+            'producer' => $this->dataModel->getProducer(),
+            'genre' => $this->dataModel->getGenre(),
+        ];
+        return $this->container->view->render($response, 'home.twig', $dataForView);
     }
 
     public function getDataForNewDorama($request, $response)
@@ -62,10 +69,23 @@ class FrontController
         return $response->withRedirect('/');
     }
 
+    public function sotrDoramas($request, $response)
+    {
+        $dataForView = [
+            'data' => $this->dataModel->getAllData($request->getParsedBody()),
+            'selected' => $request->getParsedBody(),
+            'country' => $this->dataModel->getCountry(),
+            'channel' => $this->dataModel->getChannel(),
+            'statust' => $this->dataModel->getStatus(),
+            'producer' => $this->dataModel->getProducer(),
+            'genre' => $this->dataModel->getGenre(),
+        ];
+        return $this->container->view->render($response, 'home.twig', $dataForView);
+    }
+
     public function deleteDorama($request, $response)
     {
         $this->dataModel->deleteDorama($request->getParam('element'));
-
     }
 
 }
