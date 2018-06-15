@@ -1,5 +1,7 @@
 $(function() {
 
+    $("#sort-table").tablesorter();
+
     $('.x-btn i').on('click', function() {
 
         const conf = confirm('Are you sure?');
