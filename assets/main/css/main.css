@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
-* { font-family: 'Roboto', sans-serif; }
+* { font-family: 'Roboto', sans-serif;  }
 
 ::selection { color: #fff; background: #952347; }
 ::-moz-selection { color: #fff; background: #952347; }
@@ -8,7 +8,7 @@
 .form-group input, .form-group select { color: #952347 !important; }
 
 .x-btn i, .edit-btn i { cursor: pointer; transition: 0.2s; }
-.x-btn i:hover { color: #C62828; }
+.x-btn i:hover { color: #952347; }
 .edit-btn i:hover { color: #1565C0; }
 
 .title-color { color: #952347; text-transform: uppercase; font-size: 34px; font-weight: 600; }
