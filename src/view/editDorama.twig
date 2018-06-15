@@ -1,5 +1,6 @@
 {% include('header.twig') %}
 <div class="container">
+    <h1 class="text-center mb-4 title-color">Edit Dorama</h1>
     <form method="POST" action="/editNewDorama">
         <div class="form-group">
             <label>Enter Name</label>
@@ -82,7 +83,7 @@
             <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" value="{{ data.issue_year }}" required >
         </div>
         <input type="hidden" name="Dorama[id]" value="{{ id }}">
-        <button type="submit" class="btn btn-dark">Update Dorama</button>
+        <button type="submit" class="btn btn-dorama mb-5">Update Dorama</button>
     </form>
 </div>
 {% include('footer.twig') %}

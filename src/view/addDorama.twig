@@ -1,5 +1,6 @@
 {% include('header.twig') %}
 <div class="container">
+    <h1 class="text-center mb-4 title-color">Add Dorama</h1>
     <form method="POST" action="/addNewDorama">
         <div class="form-group">
             <label>Enter Name</label>
@@ -61,7 +62,7 @@
             <label>Enter Issue Year</label>
             <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" required >
         </div>
-        <button type="submit" class="btn btn-dark">Add New Dorama</button>
+        <button type="submit" class="btn btn-dorama mb-5">Add New Dorama</button>
     </form>
 </div>
 {% include('footer.twig') %}
