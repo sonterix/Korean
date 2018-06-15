@@ -42,6 +42,26 @@ class FrontController
         return $response->withRedirect('/');
     }
 
+    public function getDataForEditDorama($request, $response, $args)
+    {
+        $dataForView = [
+            'data' => $this->dataModel->getDoramaById($args['id']),
+            'id' => $args['id'],
+            'country' => $this->dataModel->getCountry(),
+            'channel' => $this->dataModel->getChannel(),
+            'statust' => $this->dataModel->getStatus(),
+            'producer' => $this->dataModel->getProducer(),
+            'genre' => $this->dataModel->getGenre(),
+        ]; 
+        return $this->container->view->render($response, 'editDorama.twig', $dataForView); 
+    }
+
+    public function editDorama($request, $response)
+    {
+        $this->dataModel->updateDorama($request->getParsedBody());
+        return $response->withRedirect('/');
+    }
+
     public function deleteDorama($request, $response)
     {
         $this->dataModel->deleteDorama($request->getParam('element'));

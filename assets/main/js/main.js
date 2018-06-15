@@ -22,4 +22,10 @@ $(function() {
             },
          });
     })
+
+    $('.edit-btn i').on('click', function() {
+        const tr = $(this).parent().parent();
+        const doramaId = tr.find('.dorama-id').text();
+        window.location.href = "/editNewDorama/" + doramaId;
+    })
 });

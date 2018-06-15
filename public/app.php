@@ -30,6 +30,8 @@ $container['view'] = function ($container) {
 $app->get('/', 'app\controller\FrontController:home');
 $app->get('/addNewDorama', 'app\controller\FrontController:getDataForNewDorama');
 $app->post('/addNewDorama', 'app\controller\FrontController:addNewDorama');
+$app->get('/editNewDorama/{id}', 'app\controller\FrontController:getDataForEditDorama');
+$app->post('/editNewDorama', 'app\controller\FrontController:editDorama');
 $app->post('/deleteDorama', 'app\controller\FrontController:deleteDorama');
 
 

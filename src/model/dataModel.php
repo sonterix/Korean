@@ -99,6 +99,31 @@ class DataModel
         $stmt = $doramaData->execute(false);
     }
 
+    public function getDoramaById($id)
+    {
+        $doramaData = $this->dbh->select()->from('dorama')->where('id_dorama', '=', $id);
+        $stmt = $doramaData->execute();
+        $data = $stmt->fetch();
+        return $data;
+    }
+
+    public function updateDorama($data)
+    {
+        $doramaData = $this->dbh->update([
+            'dorama_name' => $data["Dorama"]['name'],
+            'dorama_original_name' => $data["Dorama"]['original-name'],
+            'id_country' => $data["Dorama"]['country'],
+            'id_channel' => $data["Dorama"]['channel'],
+            'series_count' => $data["Dorama"]['series-count'],
+            'series_duration ' => $data["Dorama"]['series-duration'],
+            'id_status' => $data["Dorama"]['status'],
+            'id_producer' => $data["Dorama"]['producer'],
+            'id_genre' => $data["Dorama"]['genre'],
+            'issue_year' => $data["Dorama"]['issue-year']
+        ])->table('dorama')->where('id_dorama', '=', $data["Dorama"]['id']);
+        $stmt = $doramaData->execute();
+    }
+
     public function deleteDorama($id)
     {
         $doramaData = $this->dbh->delete()->from('dorama')->where('id_dorama', '=', $id);

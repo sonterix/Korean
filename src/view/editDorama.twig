@@ -1,19 +1,23 @@
 {% include('header.twig') %}
 <div class="container">
-    <form method="POST" action="/addNewDorama">
+    <form method="POST" action="/editNewDorama">
         <div class="form-group">
             <label>Enter Name</label>
-            <input type="text" name="Dorama[name]"class="form-control" placeholder="Name" required >
+            <input type="text" name="Dorama[name]"class="form-control" placeholder="Name" value="{{ data.dorama_name }}" required >
         </div>
         <div class="form-group">
             <label>Enter Original Name</label>
-            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Original Name" required >
+            <input type="text" name="Dorama[original-name]" class="form-control" placeholder="Original Name" value="{{ data.dorama_original_name }}" required >
         </div>
         <div class="form-group">
             <label>Select Country</label>
             <select  name="Dorama[country]" class="form-control">
                 {% for value in country %}
-                    <option value="{{ value.id_country }}">{{ value.country_name }}</option>
+                    {% if value.id_country == data.id_country %}
+                        <option value="{{ value.id_country }}" selected>{{ value.country_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_country }}">{{ value.country_name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
@@ -21,23 +25,31 @@
             <label>Select Channel</label>
             <select  name="Dorama[channel]" class="form-control">
                 {% for value in channel %}
-                    <option value="{{ value.id_channel }}">{{ value.сhannel_name }}</option>
+                    {% if value.id_channel == data.id_channel %}
+                        <option value="{{ value.id_channel }}" selected>{{ value.сhannel_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_channel }}">{{ value.сhannel_name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
         <div class="form-group">
             <label>Enter Series Count</label>
-            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Series Count" required >
+            <input type="number" name="Dorama[series-count]" class="form-control" placeholder="Series Count" value="{{ data.series_count }}" required >
         </div>
         <div class="form-group">
             <label>Enter Series Duration</label>
-            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Series Duration" required >
+            <input type="number" name="Dorama[series-duration]" class="form-control" placeholder="Series Duration" value="{{ data.series_duration }}" required >
         </div>
         <div class="form-group">
             <label>Select Status</label>
             <select  name="Dorama[status]" class="form-control">
                 {% for value in statust %}
-                    <option value="{{ value.id_status }}">{{ value.status_name }}</option>
+                    {% if value.id_status == data.id_status %}
+                        <option value="{{ value.id_status }}" selected>{{ value.status_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_status }}">{{ value.status_name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
@@ -45,7 +57,11 @@
             <label>Select Producer</label>
             <select  name="Dorama[producer]" class="form-control">
                 {% for value in producer %}
-                    <option value="{{ value.id_producer }}">{{ value.producer_name }}</option>
+                    {% if value.id_producer == data.id_producer %}
+                        <option value="{{ value.id_producer }}" selected>{{ value.producer_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_producer }}">{{ value.producer_name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
@@ -53,15 +69,20 @@
             <label>Select Genre</label>
             <select  name="Dorama[genre]" class="form-control">
                 {% for value in genre %}
-                    <option value="{{ value.id_genre }}">{{ value.genre_name }}</option>
+                    {% if value.id_genre == data.id_genre %}
+                        <option value="{{ value.id_genre }}" selected>{{ value.genre_name }}</option>
+                    {% else %}
+                        <option value="{{ value.id_genre }}">{{ value.genre_name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
         <div class="form-group">
             <label>Enter Issue Year</label>
-            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" required >
+            <input type="number" name="Dorama[issue-year]" class="form-control" placeholder="Issue Year" value="{{ data.issue_year }}" required >
         </div>
-        <button type="submit" class="btn btn-dark">Add New Dorama</button>
+        <input type="hidden" name="Dorama[id]" value="{{ id }}">
+        <button type="submit" class="btn btn-dark">Update Dorama</button>
     </form>
 </div>
 {% include('footer.twig') %}
