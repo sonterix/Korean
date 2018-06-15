@@ -1,6 +1,12 @@
 $(function() {
 
+    // sorting
     $("#sort-table").tablesorter();
+
+    // pagination
+    $('#sort-table').hpaging({
+        'limit': 10,
+    });
 
     $('.x-btn i').on('click', function() {
 
